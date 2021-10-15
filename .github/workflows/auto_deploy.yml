@@ -8,11 +8,22 @@ jobs:
     name: Deploying to surge
     steps:
       - uses: actions/checkout@v2
-      - name: Install Node.js
-        uses: actions/setup-node@v2-beta
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
         with:
-          node-version: 12
-      - name: Install Surge
+            node-version: 12
+      - name: GitHub Action for Yarn
+        uses: Borales/actions-yarn@v2.3.0
+        with:
+         # Yarn command
+          cmd: install
+          
+      - name: Creating build
+        run: yarn build
+          
+      - name: installing surge
         run: npm install -g surge
-      - name: Run surge
-        run: surge ./ code4saad_b-practice.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        
+      - name: deploying on surge
+        run: surge ./build https://code4saad.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
