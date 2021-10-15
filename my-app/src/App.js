@@ -4,7 +4,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-    <header className="App-header">
+    <h1>Hello Muhammad Saad</h1>
+    {/* <header className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
     <p>
     Edit <code>src/App.js</code> and save to reload.
@@ -17,10 +18,9 @@ function App() {
     >
     Learn More
     </a>
-    </header>
-    </div>
-    );
-  }
-  
-  export default App;
-  
+  </header> */}
+  </div>
+  );
+}
+
+export default App;
